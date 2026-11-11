@@ -1,0 +1,6 @@
+---
+import Page from '../layouts/Page.astro';
+import { getPage } from '../data.server';
+const data = getPage('/')!;
+---
+<Page data={data} />

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode, KeyboardEvent, TouchEvent } from "react";
-import { Link } from "react-router";
+import { Link } from "./Navigation";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -133,60 +133,6 @@ export function Home({ data }: { data: PageData }) {
     .filter(Boolean);
 
   const slides: Slide[] = [
-    {
-      key: "hans-merkt",
-      label: "Hans Merkt",
-      node: (
-        <article className={s.slideFeature}>
-          <div className={s.slideFeatureText}>
-            <p className={s.heroQuote}>
-              “A Veterinária brasileira tem duas histórias: antes e depois de{" "}
-              <em>Hans Merkt.</em>”
-            </p>
-            <p className={s.heroDescription}>
-              Um legado que aproximou países e transformou o ensino da Medicina
-              Veterinária.
-            </p>
-            <Link className={s.heroButton} to={hero.path}>
-              Conheça o legado <ArrowRight size={18} />
-            </Link>
-          </div>
-          <div className={s.heroFigure} aria-hidden="true">
-            <img
-              src="/media/hans-merkt-cutout.webp"
-              alt=""
-              width="555"
-              height="816"
-              fetchPriority="high"
-            />
-          </div>
-          <div className={s.portraitCaption}>
-            <span>Professor</span>
-            <strong>Hans Merkt</strong>
-            <small>Membro honorário da ABAMEV</small>
-          </div>
-        </article>
-      ),
-    },
-    {
-      key: "sociedade-brasileira",
-      label: institutional.title,
-      node: (
-        <article className={s.slideInstitutions}>
-          <h2>{institutional.title}</h2>
-          <ul className={s.institutionLogos} aria-label="Marcas institucionais">
-            {institutional.logos.map((logo) => (
-              <li key={logo.label}>
-                <div className={s.institutionMark}>
-                  <img src={logo.image} alt={logo.name} decoding="async" />
-                </div>
-                <span aria-hidden="true">{logo.label}</span>
-              </li>
-            ))}
-          </ul>
-        </article>
-      ),
-    },
     ...site.heroSlides.map((slide) => ({
       key: slide.link,
       label: slide.title,
@@ -226,7 +172,10 @@ export function Home({ data }: { data: PageData }) {
                 {slide.cta} <ArrowUpRight size={18} />
               </a>
             ) : (
-              <Link className={`${s.heroButton} ${s.stretchedLink}`} to={slide.link}>
+              <Link
+                className={`${s.heroButton} ${s.stretchedLink}`}
+                to={slide.link}
+              >
                 {slide.cta} <ArrowRight size={18} />
               </Link>
             )}
@@ -234,6 +183,60 @@ export function Home({ data }: { data: PageData }) {
         </article>
       ),
     })),
+    {
+      key: "sociedade-brasileira",
+      label: institutional.title,
+      node: (
+        <article className={s.slideInstitutions}>
+          <h2>{institutional.title}</h2>
+          <ul className={s.institutionLogos} aria-label="Marcas institucionais">
+            {institutional.logos.map((logo) => (
+              <li key={logo.label}>
+                <div className={s.institutionMark}>
+                  <img src={logo.image} alt={logo.name} decoding="async" />
+                </div>
+                <span aria-hidden="true">{logo.label}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ),
+    },
+    {
+      key: "hans-merkt",
+      label: "Hans Merkt",
+      node: (
+        <article className={s.slideFeature}>
+          <div className={s.slideFeatureText}>
+            <p className={s.heroQuote}>
+              “A Veterinária brasileira tem duas histórias: antes e depois de{" "}
+              <em>Hans Merkt.</em>”
+            </p>
+            <p className={s.heroDescription}>
+              Um legado que aproximou países e transformou o ensino da Medicina
+              Veterinária.
+            </p>
+            <Link className={s.heroButton} to={hero.path}>
+              Conheça o legado <ArrowRight size={18} />
+            </Link>
+          </div>
+          <div className={s.heroFigure} aria-hidden="true">
+            <img
+              src="/media/hans-merkt-cutout.webp"
+              alt=""
+              width="555"
+              height="816"
+              fetchPriority="high"
+            />
+          </div>
+          <div className={s.portraitCaption}>
+            <span>Professor</span>
+            <strong>Hans Merkt</strong>
+            <small>Membro honorário da ABAMEV</small>
+          </div>
+        </article>
+      ),
+    },
   ];
 
   const highlights = [
@@ -342,14 +345,27 @@ export function Home({ data }: { data: PageData }) {
               className={`${s.readingCard} ${item.kind === "portrait" ? s.readingPortrait : s.readingBook}`}
             >
               <div className={s.readingImage}>
-                <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
+                <img
+                  src={item.image}
+                  alt={item.alt}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className={s.readingBody}>
                 <span className={s.eyebrow}>{item.kicker}</span>
                 <h3>
-                  <a href={item.link} target="_blank" rel="noreferrer" className={s.stretchedLink}>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={s.stretchedLink}
+                  >
                     {item.title}
-                    <span className={s.srOnly}> (abre no Google Drive em nova aba)</span>
+                    <span className={s.srOnly}>
+                      {" "}
+                      (abre no Google Drive em nova aba)
+                    </span>
                   </a>
                 </h3>
                 <p>{item.text}</p>

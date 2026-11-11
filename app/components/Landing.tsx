@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useSearchParams } from "react-router";
+import { Link, useSearchParams } from "./Navigation";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -8,13 +8,7 @@ import {
   ChevronRight,
   Search,
 } from "./Icons";
-import {
-  Card,
-  Markdown,
-  normalize,
-  PersonCard,
-  TextLink,
-} from "./Content";
+import { Card, Markdown, normalize, PersonCard, TextLink } from "./Content";
 import { SearchForm } from "./Shell";
 import type { PageData, EntrySummary } from "../types";
 import s from "../styles/site.module.css";

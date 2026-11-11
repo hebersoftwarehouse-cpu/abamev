@@ -14,7 +14,7 @@ Revisão realizada em 10 de novembro de 2026.
 
 ## Aplicação e build
 
-- React 19, TypeScript, Vite e React Router; sem servidor de aplicação na hospedagem.
+- Astro com HTML estático por rota, React 19 nas interações e TypeScript; sem servidor de aplicação na hospedagem.
 - 136 rotas pré-renderizadas, incluindo páginas de busca, privacidade, categorias históricas vazias e página de erro. O sitemap inclui 132 URLs indexáveis.
 - 142 redirecionamentos para endereços anteriores.
 - Todas as páginas possuem conteúdo principal no HTML, um h1, um título, uma descrição e um canonical, além de imagem de compartilhamento local.

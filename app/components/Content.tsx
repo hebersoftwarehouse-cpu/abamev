@@ -1,6 +1,6 @@
 import { Children, isValidElement, useEffect, useRef, useState } from "react";
 import type { MouseEvent, ReactNode } from "react";
-import { Link } from "react-router";
+import { Link } from "./Navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import {
@@ -63,8 +63,12 @@ async function scrollToAnchor(e: MouseEvent, href: string) {
   const target = document.getElementById(href.slice(1));
   if (!target) return;
   e.preventDefault();
-  const pending = [...document.querySelectorAll<HTMLImageElement>("main img")].filter(
-    (img) => !img.complete && img.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING,
+  const pending = [
+    ...document.querySelectorAll<HTMLImageElement>("main img"),
+  ].filter(
+    (img) =>
+      !img.complete &&
+      img.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING,
   );
   pending.forEach((img) => (img.loading = "eager"));
   if (pending.length)
@@ -367,7 +371,9 @@ export function Markdown({ body }: { body: string }) {
 }
 
 export function ShareButtons() {
-  const [toast, setToast] = useState<{ text: string; ok: boolean } | null>(null);
+  const [toast, setToast] = useState<{ text: string; ok: boolean } | null>(
+    null,
+  );
   const timer = useRef<number>(undefined);
   useEffect(() => () => window.clearTimeout(timer.current), []);
   function notify(text: string, ok = true) {
@@ -388,9 +394,14 @@ export function ShareButtons() {
     }
     try {
       await navigator.clipboard.writeText(url);
-      notify("Link da página copiado. Agora é só colar onde quiser compartilhar.");
+      notify(
+        "Link da página copiado. Agora é só colar onde quiser compartilhar.",
+      );
     } catch {
-      notify("Não foi possível copiar. Copie o endereço na barra do navegador.", false);
+      notify(
+        "Não foi possível copiar. Copie o endereço na barra do navegador.",
+        false,
+      );
     }
   }
   return (
@@ -403,7 +414,11 @@ export function ShareButtons() {
         <Printer size={16} />
         Imprimir
       </button>
-      <div className={`${s.toast} ${toast ? s.toastVisible : ""}`} role="status" aria-live="polite">
+      <div
+        className={`${s.toast} ${toast ? s.toastVisible : ""}`}
+        role="status"
+        aria-live="polite"
+      >
         {toast && (
           <>
             {toast.ok && (
@@ -447,12 +462,24 @@ export function Detail({
     ...(headings.length
       ? headings.map((h, i) => {
           const repeat = headings.slice(0, i).filter((x) => x === h).length;
-          return { label: h, href: `#${headingId(h)}${repeat ? `-${repeat}` : ""}` };
+          return {
+            label: h,
+            href: `#${headingId(h)}${repeat ? `-${repeat}` : ""}`,
+          };
         })
-      : [{ label: entry.chair ? "Biografia" : entry.title, href: "#secao-conteudo" }]),
+      : [
+          {
+            label: entry.chair ? "Biografia" : entry.title,
+            href: "#secao-conteudo",
+          },
+        ]),
     ...(entry.videos.length ? [{ label: "Vídeo", href: "#secao-video" }] : []),
-    ...(entry.attachments.length ? [{ label: "Arquivos", href: "#secao-arquivos" }] : []),
-    ...(related.length ? [{ label: "Leia também", href: "#secao-leia-tambem" }] : []),
+    ...(entry.attachments.length
+      ? [{ label: "Arquivos", href: "#secao-arquivos" }]
+      : []),
+    ...(related.length
+      ? [{ label: "Leia também", href: "#secao-leia-tambem" }]
+      : []),
   ];
   return (
     <>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Form, Link, NavLink, useLocation } from "react-router";
+import { Form, Link, NavLink } from "./Navigation";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -110,18 +110,20 @@ export const navigation: NavItem[] = [
   { label: "Notícias e vídeos", prefix: "/noticias", path: "/noticias" },
 ];
 
-export function Brand({
-  onDark = false,
-}: {
-  onDark?: boolean;
-}) {
+export function Brand({ onDark = false }: { onDark?: boolean }) {
   return (
     <Link
       to="/"
       className={`${s.brand} ${onDark ? s.brandOnDark : ""}`}
       aria-label="ABAMEV — início"
     >
-      <img className={s.crest} src="/images/brands/abamev.png" alt="" width="230" height="234" />
+      <img
+        className={s.crest}
+        src="/images/brands/abamev.png"
+        alt=""
+        width="230"
+        height="234"
+      />
       <span className={s.brandText}>
         <strong>ABAMEV</strong>
         <span>
@@ -133,25 +135,24 @@ export function Brand({
   );
 }
 
-export function Header() {
-  const location = useLocation();
+export function Header({ path }: { path: string }) {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [drawerSection, setDrawerSection] = useState<string | null>(null);
   const nav = useRef<HTMLElement>(null);
   const menuButton = useRef<HTMLButtonElement>(null);
   const closeButton = useRef<HTMLButtonElement>(null);
-  const previousPath = useRef(location.pathname);
+  const previousPath = useRef(path);
   const isActive = (prefix: string) =>
-    location.pathname === prefix || location.pathname.startsWith(`${prefix}/`);
+    path === prefix || path.startsWith(`${prefix}/`);
 
   useEffect(() => {
     setOpenMenu(null);
     setDrawerOpen(false);
-    if (previousPath.current !== location.pathname)
+    if (previousPath.current !== path)
       document.getElementById("main")?.focus({ preventScroll: true });
-    previousPath.current = location.pathname;
-  }, [location.pathname]);
+    previousPath.current = path;
+  }, [path]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -188,9 +189,13 @@ export function Header() {
 
   return (
     <header className={s.header}>
+      {/* Estatuto da ABAMEV, art. 2º: content/pages.json (registro 25). */}
       <div className={s.utility}>
         <div className={s.container}>
-          <span>Memória e conhecimento a serviço da Medicina Veterinária.</span>
+          <span>
+            Promover o desenvolvimento cultural e científico da Medicina
+            Veterinária baiana e brasileira.
+          </span>
           <a href={site.youtube} target="_blank" rel="noreferrer">
             <Youtube size={16} /> Nosso canal no YouTube{" "}
             <ArrowUpRight size={14} />
@@ -200,9 +205,9 @@ export function Header() {
       <div className={`${s.container} ${s.masthead}`}>
         <Brand />
         <span className={s.mastheadNote}>
-          Ciência que conecta.
+          Resgate e defesa da gloriosa memória da
           <br />
-          <em>História que permanece.</em>
+          <em>Medicina Veterinária da Bahia.</em>
         </span>
         <div className={s.mobileActions}>
           <Link to="/busca" className={s.iconButton} aria-label="Buscar">
@@ -269,6 +274,7 @@ export function Header() {
                           <li key={child.path}>
                             <NavLink
                               to={child.path}
+                              currentPath={path}
                               className={({ isActive: current }) =>
                                 current ? s.dropdownCurrent : ""
                               }
@@ -372,6 +378,7 @@ export function Header() {
                           <li key={child.path}>
                             <NavLink
                               to={child.path}
+                              currentPath={path}
                               className={({ isActive: current }) =>
                                 current ? s.drawerCurrent : ""
                               }
@@ -408,9 +415,13 @@ export function Footer() {
         <div className={s.footerTop}>
           <div className={s.footerBrand}>
             <Brand onDark />
+            {/*
+              Fala sobre a ABAMEV publicada pelo CRMV-BA em 2023:
+              https://www.crmvba.org.br/tag/abamev/
+            */}
             <p>
-              Preservar a memória. Valorizar a ciência. Reconhecer quem faz a
-              nossa história.
+              Resgate e defesa da gloriosa memória da Medicina Veterinária da
+              Bahia.
             </p>
           </div>
           <div>

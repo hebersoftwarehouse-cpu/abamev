@@ -2,9 +2,9 @@ import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { resolve, extname } from 'node:path';
 
-const root = resolve('build/client');
+const root = resolve('dist');
 const redirects = JSON.parse(await readFile('content/redirects.json', 'utf8'));
-const types = { '.html':'text/html; charset=utf-8', '.js':'text/javascript', '.css':'text/css', '.json':'application/json', '.webp':'image/webp', '.png':'image/png', '.svg':'image/svg+xml', '.pdf':'application/pdf', '.woff2':'font/woff2', '.data':'text/x-script', '.xml':'application/xml', '.txt':'text/plain' };
+const types = { '.html':'text/html; charset=utf-8', '.js':'text/javascript', '.css':'text/css', '.json':'application/json', '.webp':'image/webp', '.png':'image/png', '.svg':'image/svg+xml', '.pdf':'application/pdf', '.woff2':'font/woff2', '.xml':'application/xml', '.txt':'text/plain' };
 const port = Number(process.env.PORT || 4173);
 createServer(async(req,res)=>{
   try {

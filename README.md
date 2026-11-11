@@ -1,6 +1,6 @@
 # ABAMEV
 
-Site institucional da Academia Baiana de Medicina Veterinária. React 19, TypeScript, React Router e Vite, com páginas geradas no build e hospedagem inteiramente estática.
+Site institucional da Academia Baiana de Medicina Veterinária. Astro gera uma página HTML estática para cada endereço. Componentes React preservam as interações de menu, filtros, busca, carrossel, vídeo e compartilhamento, com navegação por links HTML comuns.
 
 ## Executar
 
@@ -36,7 +36,7 @@ As coleções são `publications.json`, `pages.json`, `academics.json` e `boards
 
 ## Hospedagem
 
-Vercel: importe o repositório, use Node.js 24, comando `npm run build` e saída `build/client`. A configuração `vercel.json` é gerada pelo build com redirecionamentos permanentes. Netlify: o arquivo `netlify.toml` já declara comando, diretório e cabeçalhos; `_redirects` é gerado na saída. Não configure um fallback global para a home: páginas ausentes devem responder 404.
+Netlify: importe o repositório, use Node.js 24, comando `npm run build` e saída `dist`. O arquivo `netlify.toml` já declara esses valores e os cabeçalhos; `_redirects` é gerado na saída com os endereços antigos e a página 404. Não configure um fallback global para a home: páginas ausentes devem responder 404. A configuração de Vercel também é gerada pelo build, caso seja necessária.
 
 O domínio canônico padrão é `https://www.abamev.org.br`. Defina `VITE_SITE_URL` para alterá-lo. Defina `VITE_NOINDEX=true` em qualquer prévia compartilhada. Ambientes de preview da Vercel e Netlify também são detectados automaticamente. A publicação depende da conta de hospedagem e do domínio que receberão o projeto; nenhum recurso de nuvem é criado pelo build.
 

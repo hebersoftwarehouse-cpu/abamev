@@ -646,7 +646,11 @@
   padding: 56px 64px;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 82% 20%, rgb(153 172 126 / 34%), transparent 52%),
+    radial-gradient(
+      ellipse at 82% 20%,
+      rgb(153 172 126 / 34%),
+      transparent 52%
+    ),
     linear-gradient(120deg, var(--green-900) 0%, var(--green-700) 100%);
 }
 .slideFeatureText {
@@ -770,7 +774,12 @@
 }
 .slideImage:has(.slidePortraits)::after {
   background:
-    linear-gradient(90deg, var(--green-900) 40%, rgb(13 39 32 / 86%) 46%, transparent 62%),
+    linear-gradient(
+      90deg,
+      var(--green-900) 40%,
+      rgb(13 39 32 / 86%) 46%,
+      transparent 62%
+    ),
     linear-gradient(0deg, rgb(13 39 32 / 72%), transparent 42%);
 }
 .slideImageText {
@@ -1053,7 +1062,11 @@
   display: grid;
   place-items: center;
   background:
-    radial-gradient(ellipse at 70% 18%, rgb(255 255 255 / 65%), transparent 60%),
+    radial-gradient(
+      ellipse at 70% 18%,
+      rgb(255 255 255 / 65%),
+      transparent 60%
+    ),
     linear-gradient(135deg, #e4ece3, #c9dacd);
   color: var(--green-800);
 }
@@ -1275,7 +1288,9 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: var(--cream-50);
-  transition: box-shadow 0.25s, border-color 0.25s;
+  transition:
+    box-shadow 0.25s,
+    border-color 0.25s;
 }
 .readingCard:hover,
 .readingCard:focus-within {
@@ -1985,7 +2000,9 @@
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, 16px);
-  transition: opacity 0.25s, transform 0.35s var(--ease);
+  transition:
+    opacity 0.25s,
+    transform 0.35s var(--ease);
 }
 .toastVisible {
   opacity: 1;
@@ -2678,7 +2695,12 @@
     inset: 0 0 29%;
   }
   .slideImage:has(.slidePortraits)::after {
-    background: linear-gradient(0deg, var(--green-900) 28%, rgb(13 39 32 / 75%) 47%, transparent 74%);
+    background: linear-gradient(
+      0deg,
+      var(--green-900) 28%,
+      rgb(13 39 32 / 75%) 47%,
+      transparent 74%
+    );
   }
   .slideImageText {
     justify-content: flex-end;

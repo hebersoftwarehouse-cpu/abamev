@@ -1,5 +1,6 @@
 {
-  "include": ["app/**/*", ".react-router/types/**/*", "vite.config.ts", "react-router.config.ts"],
+  "extends": "astro/tsconfigs/strict",
+  "include": ["app/**/*", "astro.config.mjs"],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2023"],
     "types": ["node", "vite/client"],
@@ -13,6 +14,6 @@
     "strict": true,
     "skipLibCheck": true,
     "noEmit": true,
-    "rootDirs": [".", "./.react-router/types"]
+    "rootDirs": ["."]
   }
 }
