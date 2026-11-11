@@ -12,7 +12,7 @@ import '../styles/global.css';
 const { data } = Astro.props as { data: PageData };
 const base = (import.meta.env.VITE_SITE_URL || site.url).replace(/\/$/, '');
 const canonical = `${base}${data.path === '/' ? '' : data.path}`;
-const title = data.path === '/' ? `${site.shortName} — ${site.name}` : `${data.title} | ABAMEV`;
+const title = data.path === '/' ? `${site.shortName} - ${site.name}` : `${data.title} | ABAMEV`;
 const noindex = import.meta.env.VITE_NOINDEX === 'true' ||
   Boolean(process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production' ||
     process.env.CONTEXT && process.env.CONTEXT !== 'production') ||
