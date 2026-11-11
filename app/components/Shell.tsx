@@ -466,7 +466,6 @@ export function Footer() {
             © {new Date().getFullYear()} Academia Baiana de Medicina
             Veterinária. Todos os direitos reservados.
           </span>
-          <Link to="/privacidade">Privacidade</Link>
           <a href="#top">Voltar ao topo ↑</a>
         </div>
       </div>

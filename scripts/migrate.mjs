@@ -117,8 +117,7 @@ for (const item of arr(channel.item)) {
   const disposition = { id, originalTitle, originalUrl, status: 'migrated', destination: null };
   if (clean(item['wp:status']) !== 'publish' || ['3', '22', '23'].includes(id) || id === '10') {
     disposition.status = 'excluded';
-    disposition.reason = id === '10' ? 'Política técnica antiga substituída por política fiel ao funcionamento atual.' : clean(item['wp:status']) !== 'publish' ? 'Rascunho não publicado.' : 'Registro de teste.';
-    if (id === '10') redirects['/cookies'] = '/privacidade';
+    disposition.reason = id === '10' ? 'Política antiga de cookies excluída.' : clean(item['wp:status']) !== 'publish' ? 'Rascunho não publicado.' : 'Registro de teste.';
     report.records.push(disposition); continue;
   }
   const title = titleOverrides[id] || pretty(originalTitle);

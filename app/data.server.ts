@@ -77,11 +77,6 @@ const configs: Record<string, [string, string, string]> = {
     "Buscar",
     "Pesquise publicações, acadêmicos, documentos e notícias da ABAMEV.",
   ],
-  "/privacidade": [
-    "privacy",
-    "Privacidade",
-    "Como este site funciona e quais serviços externos você pode escolher acessar.",
-  ],
   "/404": [
     "404",
     "Página não encontrada",

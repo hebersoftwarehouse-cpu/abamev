@@ -1548,10 +1548,6 @@
   min-height: 50vh;
   padding: 48px 0 104px;
 }
-.narrow {
-  max-width: 760px;
-}
-
 /* Filtros */
 .filters {
   display: flex;
@@ -2387,6 +2383,9 @@
 }
 
 @media (max-width: 1023px) {
+  .header {
+    border-bottom: 1px solid var(--line);
+  }
   .container {
     width: calc(100% - 48px);
   }
@@ -2631,9 +2630,11 @@
     gap: 32px;
     padding-top: 40px;
   }
-  .articleAside > nav {
-    position: static;
-    max-height: none;
+  .articleAside {
+    display: none;
+  }
+  .printButton {
+    display: none !important;
   }
 }
 
@@ -2650,11 +2651,11 @@
 
 @media (max-width: 900px) {
   .carousel {
-    height: auto;
+    height: 500px;
   }
   .slide {
-    height: auto;
-    min-height: 580px;
+    height: 100%;
+    min-height: 0;
   }
   .slideFeature {
     flex-direction: column;
@@ -2665,12 +2666,11 @@
     max-width: 100%;
   }
   .heroFigure {
-    position: relative;
-    right: auto;
-    align-self: flex-end;
-    height: 320px;
-    margin-top: auto;
-    margin-right: -8px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 270px;
+    margin: 0;
   }
   .portraitCaption {
     right: auto;
@@ -2681,7 +2681,7 @@
     text-align: left;
   }
   .slideImage {
-    min-height: 580px;
+    min-height: 0;
   }
   .slideImage::after {
     background: linear-gradient(
@@ -2704,7 +2704,7 @@
   }
   .slideImageText {
     justify-content: flex-end;
-    min-height: 580px;
+    min-height: 0;
     padding: 32px 32px 104px;
   }
   .slideImage:has(.slidePortraits) .slideImageText {
@@ -2761,7 +2761,7 @@
   .utility span {
     font-size: 12px;
   }
-  .utility a {
+  .utility span {
     display: none;
   }
   .masthead {
@@ -2818,34 +2818,58 @@
   .slide,
   .slideImage,
   .slideImageText {
-    min-height: 600px;
+    min-height: 0;
   }
   .slideFeature {
-    padding: 32px 24px 0;
+    padding: 26px 24px 0;
+    height: 423px;
+    background: unset;
   }
   .heroQuote {
-    font-size: 30px;
+    font-size: clamp(25px, 6.8vw, 29px);
   }
   .heroDescription {
-    font-size: 16px;
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 1.5;
   }
   .heroButton {
-    margin-top: 24px;
+    height: 44px;
+    margin-top: 16px;
+    padding-inline: 20px;
+    font-size: 14px;
   }
   .heroFigure {
-    height: 280px;
+    right: 20px;
+    height: 220px;
     margin-right: -18px;
   }
   .portraitCaption {
     left: 24px;
     bottom: 90px;
+    width: 150px;
     max-width: 150px;
+    padding: 8px 12px;
   }
   .portraitCaption strong {
     font-size: 22px;
+    white-space: nowrap;
+  }
+  .portraitCaption small {
+    display: block;
+    font-size: 11px;
+    line-height: 1.4;
   }
   .slideImageText {
     padding: 28px 24px 100px;
+  }
+  .slideImageText h2 {
+    font-size: clamp(25px, 6.4vw, 32px);
+  }
+  .slideImageText p {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.5;
   }
   .slideInstitutions {
     padding: 34px 20px 86px;
@@ -2973,6 +2997,7 @@
     font-size: 17px;
   }
   .tabs {
+    position: relative;
     flex-wrap: nowrap;
     overflow-x: auto;
     margin-inline: -20px;
@@ -3109,12 +3134,9 @@
 }
 
 @media (max-width: 390px) {
-  .heroFigure {
-    margin-right: -34px;
-  }
   .portraitCaption {
-    max-width: 110px;
-    padding: 8px 9px;
+    width: 150px;
+    max-width: 150px;
   }
   .portraitCaption span,
   .portraitCaption small {
@@ -3130,7 +3152,13 @@
     font-size: 24px;
   }
   .heroQuote {
-    font-size: 27px;
+    font-size: 24px;
+  }
+  .heroDescription {
+    font-size: 13px;
+  }
+  .heroFigure {
+    height: 180px;
   }
   .personGrid {
     grid-template-columns: 1fr;

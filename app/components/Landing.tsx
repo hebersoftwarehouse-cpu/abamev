@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useSearchParams } from "./Navigation";
 import {
   ArrowRight,
@@ -8,7 +8,7 @@ import {
   ChevronRight,
   Search,
 } from "./Icons";
-import { Card, Markdown, normalize, PersonCard, TextLink } from "./Content";
+import { Card, normalize, PersonCard, TextLink } from "./Content";
 import { SearchForm } from "./Shell";
 import type { PageData, EntrySummary } from "../types";
 import s from "../styles/site.module.css";
@@ -35,6 +35,14 @@ function PageHeader({ data }: { data: PageData }) {
   const group = Object.keys(tabGroups).find(
     (prefix) => data.path === prefix || data.path.startsWith(`${prefix}/`),
   );
+  const tabsRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const nav = tabsRef.current;
+    const active = nav?.querySelector<HTMLElement>("[aria-current]");
+    if (!nav || !active) return;
+    nav.scrollLeft =
+      active.offsetLeft - (nav.clientWidth - active.offsetWidth) / 2;
+  }, [data.path]);
   return (
     <div className={s.pageHero}>
       <div className={s.container}>
@@ -43,7 +51,7 @@ function PageHeader({ data }: { data: PageData }) {
           {data.path !== "/academicos/falecidos" && <p>{data.description}</p>}
         </header>
         {group && (
-          <nav aria-label="Seções" className={s.tabs}>
+          <nav aria-label="Seções" className={s.tabs} ref={tabsRef}>
             {tabGroups[group].map(([label, path]) => (
               <Link
                 key={path}
@@ -378,19 +386,10 @@ function SearchPage() {
   );
 }
 
-const privacy =
-  "## Navegação no site\n\nEste site apresenta o conteúdo institucional da ABAMEV. Não possui cadastro, área de acesso, comentários ou formulários de envio de dados. A busca é realizada no navegador, a partir de um índice público de conteúdo.\n\n## Fontes e serviços externos\n\nAs fontes tipográficas, imagens e documentos são servidos pelo próprio site. Não utilizamos ferramentas de publicidade ou de análise de visitantes. A infraestrutura de hospedagem pode processar dados técnicos de acesso, como endereço IP, conforme as políticas do provedor.\n\n## Vídeos do YouTube\n\nO player externo só é carregado quando você escolhe assistir ao vídeo. Utilizamos o domínio youtube-nocookie.com. Após a ativação, o YouTube pode processar dados de acordo com suas próprias políticas. Você também pode optar por abrir o vídeo diretamente no YouTube.\n\n## Links para outros sites\n\nAlguns conteúdos remetem ao Google Drive e a outras fontes externas. Ao seguir esses links, passam a valer as políticas dos respectivos serviços.";
-
 export function Landing({ data }: { data: PageData }) {
   const k = data.kind;
   let content;
   if (k === "search") content = <SearchPage />;
-  else if (k === "privacy")
-    content = (
-      <div className={s.narrow}>
-        <Markdown body={privacy} />
-      </div>
-    );
   else if (k === "404")
     content = (
       <div className={s.empty}>

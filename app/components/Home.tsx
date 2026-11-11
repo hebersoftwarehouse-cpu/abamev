@@ -320,19 +320,6 @@ export function Home({ data }: { data: PageData }) {
         ))}
       </section>
 
-      <section className={`${s.container} ${s.homeSection}`}>
-        <SectionHeading
-          title="Publicações"
-          to="/publicacoes"
-          link="Ver todas as publicações"
-        />
-        <div className={s.cardGrid}>
-          {pick(site.home.publicationIds).map((item) => (
-            <Card key={item.id} item={item} />
-          ))}
-        </div>
-      </section>
-
       <section
         className={`${s.container} ${s.homeSection}`}
         aria-label="Leituras em Destaque"
@@ -412,6 +399,19 @@ export function Home({ data }: { data: PageData }) {
                 <ArrowUpRight size={20} />
               </span>
             </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={`${s.container} ${s.homeSection}`}>
+        <SectionHeading
+          title="Publicações"
+          to="/publicacoes"
+          link="Ver todas as publicações"
+        />
+        <div className={s.cardGrid}>
+          {pick(site.home.publicationIds).map((item) => (
+            <Card key={item.id} item={item} />
           ))}
         </div>
       </section>

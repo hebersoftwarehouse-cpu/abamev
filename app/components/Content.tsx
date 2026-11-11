@@ -410,7 +410,7 @@ export function ShareButtons() {
         <Share2 size={16} />
         Compartilhar página
       </button>
-      <button onClick={() => window.print()}>
+      <button className={s.printButton} onClick={() => window.print()}>
         <Printer size={16} />
         Imprimir
       </button>

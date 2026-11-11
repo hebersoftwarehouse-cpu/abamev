@@ -31,11 +31,6 @@
       "permanent": true
     },
     {
-      "source": "/cookies",
-      "destination": "/privacidade",
-      "permanent": true
-    },
-    {
       "source": "/node/18",
       "destination": "/noticias/convencao-internacional-on-line-em-medicina-veterinaria-legal",
       "permanent": true

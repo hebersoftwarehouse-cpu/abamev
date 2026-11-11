@@ -4,6 +4,7 @@ publish = "dist"
 
 [build.environment]
 NODE_VERSION = "24"
+VITE_SITE_URL = "https://preview-abamev.netlify.app"
 
 [[headers]]
 for = "/_astro/*"
