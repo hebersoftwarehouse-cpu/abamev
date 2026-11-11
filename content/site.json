@@ -1,0 +1,118 @@
+{
+  "name": "Academia Baiana de Medicina Veterinária",
+  "shortName": "ABAMEV",
+  "url": "https://www.abamev.org.br",
+  "description": "Memória, ciência e reconhecimento da Medicina Veterinária na Bahia. Conheça a Academia, seus acadêmicos e seu acervo histórico e científico.",
+  "youtube": "https://www.youtube.com/@abamevacademiabaianademedi2530",
+  "instagram": null,
+  "heroSlides": [
+    {
+      "image": "/images/home/instituto-biologico.webp",
+      "alt": "Fotografia histórica do prédio do Instituto Biológico da Bahia",
+      "title": "Instituto Biológico da Bahia",
+      "text": "Criado em 1947, foi a primeira referência da Medicina Veterinária baiana.",
+      "link": "/publicacoes/instituto-biologico-da-bahia-primeira-referencia-da-medicina-veterinaria-da-bahia",
+      "cta": "Ler o artigo"
+    },
+    {
+      "image": "/images/home/capelo.webp",
+      "imageAlign": "right",
+      "alt": "Ilustração de um capelo acadêmico preto com acabamento dourado",
+      "title": "Capelo, insígnia das Academias de Medicina Veterinária do Brasil",
+      "text": "A história e o significado dessa peça da vestimenta acadêmica.",
+      "link": "/publicacoes/capelo-uma-insignia-das-academias-de-medicina-veterinaria-do-brasil",
+      "cta": "Ler o artigo"
+    },
+    {
+      "portraits": [
+        {
+          "image": "/images/home/edward-jenner.webp",
+          "alt": "Retrato de Edward Jenner, por James Northcote"
+        },
+        {
+          "image": "/images/home/louis-pasteur.webp",
+          "alt": "Retrato de Louis Pasteur, por Paul Nadar"
+        }
+      ],
+      "title": "As duas primeiras vacinas do mundo",
+      "text": "Edward Jenner e Louis Pasteur na história da vacinação.",
+      "link": "https://drive.google.com/file/d/1H_gDxpA6ImKAOuCqecpcdTSxMVN4FMHZ/view?usp=sharing",
+      "cta": "Ler o artigo em PDF"
+    }
+  ],
+  "home": {
+    "heroId": "97",
+    "institutionalSlide": {
+      "title": "Sociedade Brasileira de Medicina Veterinária",
+      "logos": [
+        {
+          "image": "/images/brands/sbmv.svg",
+          "name": "Sociedade Brasileira de Medicina Veterinária",
+          "label": "SBMV"
+        },
+        {
+          "image": "/images/brands/emevz-ufba.webp",
+          "name": "Escola de Medicina Veterinária e Zootecnia da UFBA",
+          "label": "EMEVZ–UFBA"
+        },
+        {
+          "image": "/images/brands/abramvet.webp",
+          "name": "Academia Brasileira de Medicina Veterinária",
+          "label": "ABRAMVET"
+        },
+        {
+          "image": "/images/brands/crmv-ba.png",
+          "name": "Conselho Regional de Medicina Veterinária da Bahia",
+          "label": "CRMV-BA"
+        },
+        {
+          "image": "/images/brands/abamev.png",
+          "name": "Academia Baiana de Medicina Veterinária",
+          "label": "ABAMEV"
+        }
+      ]
+    },
+    "readingCards": [
+      {
+        "kind": "book",
+        "kicker": "Livro · 1958–2018",
+        "title": "60 anos de cooperação Brasil–Alemanha",
+        "text": "Seis décadas de intercâmbio científico e acadêmico na Medicina Veterinária.",
+        "image": "/images/home/cooperacao-brasil-alemanha.webp",
+        "alt": "Capa do livro 60 anos de cooperação Brasil–Alemanha",
+        "link": "https://drive.google.com/file/d/1PolTx_jwAN38tsCahkHAt1u0UQvH5-1m/view?usp=sharing",
+        "cta": "Ler o livro"
+      },
+      {
+        "kind": "portrait",
+        "kicker": "Biografia",
+        "title": "Milton Thiago de Mello",
+        "text": "Luiz Octávio Pires Leal conta a trajetória de um ícone da Medicina Veterinária brasileira e mundial.",
+        "image": "/images/home/milton-thiago-de-mello.webp",
+        "alt": "Retrato de Milton Thiago de Mello",
+        "link": "https://drive.google.com/file/d/1zfJAM_Kv109ijeNmF8a49G1YEvuvls6A/view?usp=sharing",
+        "cta": "Ler a biografia"
+      }
+    ],
+    "academicIds": [
+      "41",
+      "42",
+      "67"
+    ],
+    "publicationIds": [
+      "50",
+      "90",
+      "53"
+    ],
+    "newsIds": [
+      "141",
+      "140",
+      "138"
+    ],
+    "videoIds": [
+      "20",
+      "115",
+      "121"
+    ]
+  }
+}

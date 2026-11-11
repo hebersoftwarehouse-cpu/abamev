@@ -1,0 +1,783 @@
+{
+  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "build/client",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/node/4",
+      "destination": "/publicacoes/instituto-biologico-da-bahia-primeira-referencia-da-medicina-veterinaria-da-bahia",
+      "permanent": true
+    },
+    {
+      "source": "/node/5",
+      "destination": "/publicacoes/capelo-uma-insignia-das-academias-de-medicina-veterinaria-do-brasil",
+      "permanent": true
+    },
+    {
+      "source": "/node/6",
+      "destination": "/publicacoes/hipocrates-o-veterinario",
+      "permanent": true
+    },
+    {
+      "source": "/node/7",
+      "destination": "/publicacoes/publicacoes-da-medicina-veterinaria-na-bahia",
+      "permanent": true
+    },
+    {
+      "source": "/node/8",
+      "destination": "/publicacoes/comercializacao-e-inspecao-da-carne-bovina-na-bahia",
+      "permanent": true
+    },
+    {
+      "source": "/cookies",
+      "destination": "/privacidade",
+      "permanent": true
+    },
+    {
+      "source": "/node/18",
+      "destination": "/noticias/convencao-internacional-on-line-em-medicina-veterinaria-legal",
+      "permanent": true
+    },
+    {
+      "source": "/node/19",
+      "destination": "/publicacoes/abamev-festeja-jubileu-da-turma-de-1967",
+      "permanent": true
+    },
+    {
+      "source": "/node/20",
+      "destination": "/publicacoes/academia-baiana-de-medicina-veterinaria-anuncia-posse-de-novos-membros",
+      "permanent": true
+    },
+    {
+      "source": "/node/24",
+      "destination": "/academia/historia",
+      "permanent": true
+    },
+    {
+      "source": "/node/25",
+      "destination": "/documentos/estatuto",
+      "permanent": true
+    },
+    {
+      "source": "/node/26",
+      "destination": "/documentos/regimento",
+      "permanent": true
+    },
+    {
+      "source": "/node/27",
+      "destination": "/academia/simbolos/bandeira",
+      "permanent": true
+    },
+    {
+      "source": "/node/28",
+      "destination": "/academia/simbolos/boton",
+      "permanent": true
+    },
+    {
+      "source": "/node/29",
+      "destination": "/academia/simbolos/medalha",
+      "permanent": true
+    },
+    {
+      "source": "/node/30",
+      "destination": "/homenagens/comendadores",
+      "permanent": true
+    },
+    {
+      "source": "/node/31",
+      "destination": "/homenagens/ordem-do-merito-da-medicina-veterinaria-a-dr-penildo-silva",
+      "permanent": true
+    },
+    {
+      "source": "/node/32",
+      "destination": "/homenagens/ordem-do-merito-da-medicina-veterinaria-da-bahia-ao-medico-veterinario-benedito-fortes-de-arruda",
+      "permanent": true
+    },
+    {
+      "source": "/node/33",
+      "destination": "/academia/diretorias/1",
+      "permanent": true
+    },
+    {
+      "source": "/node/34",
+      "destination": "/academia/diretorias/2",
+      "permanent": true
+    },
+    {
+      "source": "/node/35",
+      "destination": "/academia/diretorias/3",
+      "permanent": true
+    },
+    {
+      "source": "/node/36",
+      "destination": "/academia/diretorias/4",
+      "permanent": true
+    },
+    {
+      "source": "/node/37",
+      "destination": "/academia/diretorias/5",
+      "permanent": true
+    },
+    {
+      "source": "/node/38",
+      "destination": "/academia/diretorias/6",
+      "permanent": true
+    },
+    {
+      "source": "/node/39",
+      "destination": "/academia/diretorias/7",
+      "permanent": true
+    },
+    {
+      "source": "/node/40",
+      "destination": "/academia/diretorias/8",
+      "permanent": true
+    },
+    {
+      "source": "/node/41",
+      "destination": "/academicos/cadeiras/1",
+      "permanent": true
+    },
+    {
+      "source": "/node/42",
+      "destination": "/academicos/cadeiras/2",
+      "permanent": true
+    },
+    {
+      "source": "/node/43",
+      "destination": "/academicos/cadeiras/3",
+      "permanent": true
+    },
+    {
+      "source": "/node/44",
+      "destination": "/academicos/cadeiras/4",
+      "permanent": true
+    },
+    {
+      "source": "/node/45",
+      "destination": "/academicos/membro-correspondente-n-01",
+      "permanent": true
+    },
+    {
+      "source": "/node/46",
+      "destination": "/academicos/hans-merkt",
+      "permanent": true
+    },
+    {
+      "source": "/node/47",
+      "destination": "/academicos/wilhelm-brass",
+      "permanent": true
+    },
+    {
+      "source": "/node/48",
+      "destination": "/academicos/membro-honorario-n-3",
+      "permanent": true
+    },
+    {
+      "source": "/node/49",
+      "destination": "/academicos/membro-honorario-n-4",
+      "permanent": true
+    },
+    {
+      "source": "/livro60anos",
+      "destination": "/publicacoes/60-anos-de-cooperacao-brasil-alemanha-na-medicina-veterinaria",
+      "permanent": true
+    },
+    {
+      "source": "/node/50",
+      "destination": "/publicacoes/60-anos-de-cooperacao-brasil-alemanha-na-medicina-veterinaria",
+      "permanent": true
+    },
+    {
+      "source": "/memorial_lira",
+      "destination": "/academicos/jose-alberto-da-silva-lira",
+      "permanent": true
+    },
+    {
+      "source": "/node/51",
+      "destination": "/academicos/jose-alberto-da-silva-lira",
+      "permanent": true
+    },
+    {
+      "source": "/covid19",
+      "destination": "/publicacoes/covid-19-apontamentos-do-acervo",
+      "permanent": true
+    },
+    {
+      "source": "/node/52",
+      "destination": "/publicacoes/covid-19-apontamentos-do-acervo",
+      "permanent": true
+    },
+    {
+      "source": "/node/53",
+      "destination": "/publicacoes/sobre-a-criacao-da-escola-de-medicina-veterinaria-da-bahia",
+      "permanent": true
+    },
+    {
+      "source": "/node/54",
+      "destination": "/publicacoes/antonio-nonato-marques-responsavel-pela-implantacao-do-ensino-medico-veterinario-na-bahia",
+      "permanent": true
+    },
+    {
+      "source": "/node/55",
+      "destination": "/publicacoes/evolucao-do-parque-industrial-de-laticinios-no-estado-da-bahia",
+      "permanent": true
+    },
+    {
+      "source": "/node/56",
+      "destination": "/publicacoes/sobre-o-parque-de-exposicoes-agropecuarias-de-salvador",
+      "permanent": true
+    },
+    {
+      "source": "/node/57",
+      "destination": "/publicacoes/a-medicina-veterinaria-e-os-arabes",
+      "permanent": true
+    },
+    {
+      "source": "/node/58",
+      "destination": "/publicacoes/o-cavalo-nos-tempos-do-antigo-testamento",
+      "permanent": true
+    },
+    {
+      "source": "/node/59",
+      "destination": "/publicacoes/regnier-de-graaf-e-seus-foliculos-ovarianos",
+      "permanent": true
+    },
+    {
+      "source": "/node/60",
+      "destination": "/publicacoes/pelagonius-saloninus-e-a-ars-veterinae",
+      "permanent": true
+    },
+    {
+      "source": "/node/61",
+      "destination": "/publicacoes/qualidade-da-carne-consumida-em-salvador-no-final-do-seculo-xix",
+      "permanent": true
+    },
+    {
+      "source": "/node/62",
+      "destination": "/publicacoes/uma-escola-de-medicina-veterinaria-e-pioneira-na-criacao-de-um-do-curso-de-graduacao-em-zootecnia-no-brasil",
+      "permanent": true
+    },
+    {
+      "source": "/node/63",
+      "destination": "/publicacoes/a-presenca-do-mormo-em-salvador-no-final-do-seculo-xix",
+      "permanent": true
+    },
+    {
+      "source": "/node/64",
+      "destination": "/publicacoes/o-primeiro-registro-da-presenca-de-um-medico-veterinario-na-cidade-de-salvador-bahia",
+      "permanent": true
+    },
+    {
+      "source": "/node/65",
+      "destination": "/publicacoes/a-saga-do-registro-dos-diplomas-dos-medicos-veterinarios-no-brasil",
+      "permanent": true
+    },
+    {
+      "source": "/node/66",
+      "destination": "/publicacoes/antoni-van-leeuwenhoek-e-seus-vermes-espermaticos",
+      "permanent": true
+    },
+    {
+      "source": "/node/67",
+      "destination": "/academicos/cadeiras/5",
+      "permanent": true
+    },
+    {
+      "source": "/node/68",
+      "destination": "/academicos/cadeiras/6",
+      "permanent": true
+    },
+    {
+      "source": "/node/69",
+      "destination": "/academicos/cadeiras/7",
+      "permanent": true
+    },
+    {
+      "source": "/node/70",
+      "destination": "/academicos/cadeiras/8",
+      "permanent": true
+    },
+    {
+      "source": "/node/71",
+      "destination": "/academicos/cadeiras/9",
+      "permanent": true
+    },
+    {
+      "source": "/node/72",
+      "destination": "/academicos/cadeiras/10",
+      "permanent": true
+    },
+    {
+      "source": "/node/73",
+      "destination": "/academicos/cadeiras/11",
+      "permanent": true
+    },
+    {
+      "source": "/node/74",
+      "destination": "/academicos/cadeiras/12",
+      "permanent": true
+    },
+    {
+      "source": "/node/75",
+      "destination": "/academicos/cadeiras/13",
+      "permanent": true
+    },
+    {
+      "source": "/node/76",
+      "destination": "/academicos/cadeiras/14",
+      "permanent": true
+    },
+    {
+      "source": "/node/77",
+      "destination": "/academicos/cadeiras/15",
+      "permanent": true
+    },
+    {
+      "source": "/node/78",
+      "destination": "/academicos/cadeiras/16",
+      "permanent": true
+    },
+    {
+      "source": "/node/79",
+      "destination": "/academicos/cadeiras/17",
+      "permanent": true
+    },
+    {
+      "source": "/node/80",
+      "destination": "/academicos/cadeiras/18",
+      "permanent": true
+    },
+    {
+      "source": "/node/81",
+      "destination": "/academicos/cadeiras/19",
+      "permanent": true
+    },
+    {
+      "source": "/node/82",
+      "destination": "/academicos/cadeiras/20",
+      "permanent": true
+    },
+    {
+      "source": "/node/83",
+      "destination": "/academicos/cadeiras/21",
+      "permanent": true
+    },
+    {
+      "source": "/node/85",
+      "destination": "/academicos/geraldo-cezar-de-vilhaes-torres",
+      "permanent": true
+    },
+    {
+      "source": "/node/86",
+      "destination": "/academicos/eulogio-moreira-caldas",
+      "permanent": true
+    },
+    {
+      "source": "/node/87",
+      "destination": "/academicos/ardson-jose-leal",
+      "permanent": true
+    },
+    {
+      "source": "/node/89",
+      "destination": "/academicos/jose-alberto-da-silva-lira",
+      "permanent": true
+    },
+    {
+      "source": "/node/90",
+      "destination": "/publicacoes/o-que-e-ser-academico",
+      "permanent": true
+    },
+    {
+      "source": "/node/91",
+      "destination": "/publicacoes/a-celebre-experiencia-da-primeira-vacina-de-pasteur",
+      "permanent": true
+    },
+    {
+      "source": "/node/92",
+      "destination": "/publicacoes/as-duas-primeiras-vacinas-do-mundo",
+      "permanent": true
+    },
+    {
+      "source": "/node/93",
+      "destination": "/publicacoes/historia-da-veterinaria-do-exercito-brasileiro",
+      "permanent": true
+    },
+    {
+      "source": "/node/94",
+      "destination": "/publicacoes/industria-veterinaria-brasileira-pode-fabricar-vacina-contra-a-covid-19-para-imunizar-os-brasileiros",
+      "permanent": true
+    },
+    {
+      "source": "/node/97",
+      "destination": "/noticias/hans-merkt-60-anos-do-intercambio-tiho-brasil",
+      "permanent": true
+    },
+    {
+      "source": "/node/100",
+      "destination": "/publicacoes/companhia-veterinaria-alema",
+      "permanent": true
+    },
+    {
+      "source": "/node/101",
+      "destination": "/publicacoes/companhia-veterinaria-alema",
+      "permanent": true
+    },
+    {
+      "source": "/node/102",
+      "destination": "/academicos/cadeiras/22",
+      "permanent": true
+    },
+    {
+      "source": "/node/103",
+      "destination": "/academicos/cadeiras/23",
+      "permanent": true
+    },
+    {
+      "source": "/node/104",
+      "destination": "/academicos/cadeiras/24",
+      "permanent": true
+    },
+    {
+      "source": "/node/105",
+      "destination": "/academicos/cadeiras/25",
+      "permanent": true
+    },
+    {
+      "source": "/node/106",
+      "destination": "/academicos/cadeiras/26",
+      "permanent": true
+    },
+    {
+      "source": "/node/107",
+      "destination": "/academicos/cadeiras/27",
+      "permanent": true
+    },
+    {
+      "source": "/node/108",
+      "destination": "/academicos/cadeiras/28",
+      "permanent": true
+    },
+    {
+      "source": "/node/109",
+      "destination": "/academicos/cadeiras/29",
+      "permanent": true
+    },
+    {
+      "source": "/node/110",
+      "destination": "/academicos/cadeiras/30",
+      "permanent": true
+    },
+    {
+      "source": "/node/111",
+      "destination": "/academia/diretorias/9",
+      "permanent": true
+    },
+    {
+      "source": "/node/112",
+      "destination": "/publicacoes/o-congresso-nacional-autoriza-a-industria-veterinaria-a-produzir-vacina-contra-a-covid-19",
+      "permanent": true
+    },
+    {
+      "source": "/node/113",
+      "destination": "/publicacoes/comenda-muniz-de-aragao-2021",
+      "permanent": true
+    },
+    {
+      "source": "/node/114",
+      "destination": "/noticias/palestra-inteligencia-epidemiologica-e-enfrentamento-da-covid-19-nas-forcas-armadas",
+      "permanent": true
+    },
+    {
+      "source": "/node/115",
+      "destination": "/noticias/palestra-desafios-futuros-da-medicina-veterinaria-no-brasil",
+      "permanent": true
+    },
+    {
+      "source": "/node/116",
+      "destination": "/academia/diretorias/10",
+      "permanent": true
+    },
+    {
+      "source": "/node/117",
+      "destination": "/noticias/medico-veterinario-espanhol-desenvolveu-um-novo-metodo-para-detectar-a-covid-19",
+      "permanent": true
+    },
+    {
+      "source": "/node/118",
+      "destination": "/noticias/videoclipe-a-medicina-veterinaria-segundo-ivan-mesquita",
+      "permanent": true
+    },
+    {
+      "source": "/node/121",
+      "destination": "/noticias/live-como-empreender-minha-historia-de-sucesso",
+      "permanent": true
+    },
+    {
+      "source": "/node/122",
+      "destination": "/noticias/9-de-setembro-aniversario-da-abamev",
+      "permanent": true
+    },
+    {
+      "source": "/node/123",
+      "destination": "/noticias/dia-do-medico-veterinario-9-de-setembro-de-2021",
+      "permanent": true
+    },
+    {
+      "source": "/node/124",
+      "destination": "/publicacoes/medalha-do-exercito-brasileiro",
+      "permanent": true
+    },
+    {
+      "source": "/node/125",
+      "destination": "/noticias/entrevista-dr-paulo-emilio-torres-fala-sobre-defesa-agropecuaria",
+      "permanent": true
+    },
+    {
+      "source": "/node/127",
+      "destination": "/academicos/cadeiras/31",
+      "permanent": true
+    },
+    {
+      "source": "/node/128",
+      "destination": "/academicos/cadeiras/32",
+      "permanent": true
+    },
+    {
+      "source": "/node/129",
+      "destination": "/academicos/cadeiras/33",
+      "permanent": true
+    },
+    {
+      "source": "/node/130",
+      "destination": "/academicos/cadeiras/34",
+      "permanent": true
+    },
+    {
+      "source": "/node/131",
+      "destination": "/academicos/cadeiras/35",
+      "permanent": true
+    },
+    {
+      "source": "/node/132",
+      "destination": "/academicos/cadeiras/36",
+      "permanent": true
+    },
+    {
+      "source": "/node/133",
+      "destination": "/academicos/cadeiras/37",
+      "permanent": true
+    },
+    {
+      "source": "/node/134",
+      "destination": "/academicos/cadeiras/38",
+      "permanent": true
+    },
+    {
+      "source": "/node/135",
+      "destination": "/academicos/cadeiras/39",
+      "permanent": true
+    },
+    {
+      "source": "/node/136",
+      "destination": "/academicos/cadeiras/40",
+      "permanent": true
+    },
+    {
+      "source": "/node/138",
+      "destination": "/noticias/71-assembleia-geral-extraordinaria-da-academia-de-medicina-veterinaria-do-estado-do-rio-de-janeiro-em-17-02-2022",
+      "permanent": true
+    },
+    {
+      "source": "/node/139",
+      "destination": "/academicos/heitor-dourado-portella-povoas",
+      "permanent": true
+    },
+    {
+      "source": "/node/140",
+      "destination": "/publicacoes/laudatio-para-heitor-dourado-portella-povoas",
+      "permanent": true
+    },
+    {
+      "source": "/node/141",
+      "destination": "/homenagens/ordem-do-merito-da-medicina-veterinaria-da-bahia-2022",
+      "permanent": true
+    },
+    {
+      "source": "/reghist",
+      "destination": "/academia/historia",
+      "permanent": true
+    },
+    {
+      "source": "/legislacao",
+      "destination": "/documentos/estatuto",
+      "permanent": true
+    },
+    {
+      "source": "/estatuto",
+      "destination": "/documentos/estatuto",
+      "permanent": true
+    },
+    {
+      "source": "/regimento",
+      "destination": "/documentos/regimento",
+      "permanent": true
+    },
+    {
+      "source": "/simbolos",
+      "destination": "/academia/simbolos",
+      "permanent": true
+    },
+    {
+      "source": "/diretorias",
+      "destination": "/academia/diretorias",
+      "permanent": true
+    },
+    {
+      "source": "/macademicos",
+      "destination": "/academicos/cadeiras",
+      "permanent": true
+    },
+    {
+      "source": "/honorarios",
+      "destination": "/academicos/honorarios",
+      "permanent": true
+    },
+    {
+      "source": "/correspondentes",
+      "destination": "/academicos/correspondentes",
+      "permanent": true
+    },
+    {
+      "source": "/falecidos",
+      "destination": "/academicos/falecidos",
+      "permanent": true
+    },
+    {
+      "source": "/emeritos",
+      "destination": "/academicos/cadeiras",
+      "permanent": true
+    },
+    {
+      "source": "/benemeritos",
+      "destination": "/academicos/cadeiras",
+      "permanent": true
+    },
+    {
+      "source": "/merito",
+      "destination": "/homenagens/ordem-do-merito",
+      "permanent": true
+    },
+    {
+      "source": "/jubileu",
+      "destination": "/homenagens/jubileu-de-ouro",
+      "permanent": true
+    },
+    {
+      "source": "/regfotos",
+      "destination": "/noticias/videos",
+      "permanent": true
+    },
+    {
+      "source": "/informativo",
+      "destination": "/noticias",
+      "permanent": true
+    },
+    {
+      "source": "/agenda",
+      "destination": "/noticias/eventos",
+      "permanent": true
+    },
+    {
+      "source": "/event-created/month",
+      "destination": "/noticias/eventos",
+      "permanent": true
+    },
+    {
+      "source": "/event-created/week",
+      "destination": "/noticias/eventos",
+      "permanent": true
+    },
+    {
+      "source": "/event-created/year",
+      "destination": "/noticias/eventos",
+      "permanent": true
+    },
+    {
+      "source": "/search/node",
+      "destination": "/busca",
+      "permanent": true
+    },
+    {
+      "source": "/node",
+      "destination": "/noticias",
+      "permanent": true
+    },
+    {
+      "source": "/academia",
+      "destination": "/academia/historia",
+      "permanent": true
+    },
+    {
+      "source": "/documentos",
+      "destination": "/documentos/estatuto",
+      "permanent": true
+    },
+    {
+      "source": "/academicos",
+      "destination": "/academicos/cadeiras",
+      "permanent": true
+    },
+    {
+      "source": "/academicos/emeritos",
+      "destination": "/academicos/cadeiras",
+      "permanent": true
+    },
+    {
+      "source": "/academicos/benemeritos",
+      "destination": "/academicos/cadeiras",
+      "permanent": true
+    },
+    {
+      "source": "/homenagens",
+      "destination": "/homenagens/agraciados",
+      "permanent": true
+    },
+    {
+      "source": "/academicos/memorial-jose-alberto-da-silva-lira",
+      "destination": "/academicos/jose-alberto-da-silva-lira",
+      "permanent": true
+    },
+    {
+      "source": "/academicos/memorial",
+      "destination": "/academicos/falecidos",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+}

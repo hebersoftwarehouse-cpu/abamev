@@ -1,0 +1,21 @@
+{
+  "id": "publicacao-exemplo",
+  "slug": "titulo-da-nova-publicacao",
+  "path": "/publicacoes/titulo-da-nova-publicacao",
+  "title": "Título da nova publicação",
+  "originalTitle": "Título da nova publicação",
+  "summary": "Resumo breve e fiel ao conteúdo, para listagens e compartilhamento.",
+  "category": "Publicações",
+  "categories": ["Publicações"],
+  "format": "Artigo",
+  "sourcePublishedAt": "2026-11-10T09:00:00-03:00",
+  "author": "Nome do autor",
+  "body": "## Introdução\n\nTexto da publicação em **Markdown**.\n\n## Referências\n\nAcrescente as referências pertinentes.",
+  "cover": null,
+  "images": [],
+  "attachments": [],
+  "videos": [],
+  "source": { "originalUrl": "https://www.abamev.org.br/publicacoes/titulo-da-nova-publicacao" },
+  "legacyUrls": [],
+  "empty": false
+}
