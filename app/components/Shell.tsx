@@ -115,7 +115,7 @@ export function Brand({ onDark = false }: { onDark?: boolean }) {
     <Link
       to="/"
       className={`${s.brand} ${onDark ? s.brandOnDark : ""}`}
-      aria-label="ABAMEV — início"
+      aria-label="ABAMEV - início"
     >
       <img
         className={s.crest}

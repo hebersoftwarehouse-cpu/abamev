@@ -288,7 +288,7 @@ export function Home({ data }: { data: PageData }) {
   return (
     <>
       <h1 className={s.srOnly}>
-        ABAMEV — Academia Baiana de Medicina Veterinária
+        ABAMEV - Academia Baiana de Medicina Veterinária
       </h1>
       <section
         className={`${s.container} ${s.heroSection}`}
