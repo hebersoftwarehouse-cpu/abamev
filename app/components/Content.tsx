@@ -142,9 +142,11 @@ export function SectionHeading({
 export function Card({
   item,
   compact: small = false,
+  showMedia = true,
 }: {
   item: EntrySummary;
   compact?: boolean;
+  showMedia?: boolean;
 }) {
   const image = item.cover && !item.chair ? item.cover : null;
   const { label, cta, Icon } = kindOf(item);
@@ -152,37 +154,39 @@ export function Card({
   const isPdf = label === "PDF";
   return (
     <article className={s.card}>
-      <div className={s.cardMedia} aria-hidden="true">
-        {image ? (
-          <>
-            <img
-              src={image.src}
-              alt=""
-              loading="lazy"
-              width={image.width}
-              height={image.height}
-            />
-            {isVideo && (
-              <span className={s.cardPlay}>
-                <Play size={18} fill="currentColor" />
-              </span>
-            )}
-          </>
-        ) : (
-          <div
-            className={s.cardCover}
-            data-cover={isVideo ? "video" : isPdf ? "pdf" : "editorial"}
-          >
-            <span>
-              <Icon
-                size={36}
-                strokeWidth={1.35}
-                fill={isVideo ? "currentColor" : "none"}
+      {showMedia && (
+        <div className={s.cardMedia} aria-hidden="true">
+          {image ? (
+            <>
+              <img
+                src={image.src}
+                alt=""
+                loading="lazy"
+                width={image.width}
+                height={image.height}
               />
-            </span>
-          </div>
-        )}
-      </div>
+              {isVideo && (
+                <span className={s.cardPlay}>
+                  <Play size={18} fill="currentColor" />
+                </span>
+              )}
+            </>
+          ) : (
+            <div
+              className={s.cardCover}
+              data-cover={isVideo ? "video" : isPdf ? "pdf" : "editorial"}
+            >
+              <span>
+                <Icon
+                  size={36}
+                  strokeWidth={1.35}
+                  fill={isVideo ? "currentColor" : "none"}
+                />
+              </span>
+            </div>
+          )}
+        </div>
+      )}
       <div className={s.cardBody}>
         <div className={s.cardMeta}>
           <span className={s.cardType}>

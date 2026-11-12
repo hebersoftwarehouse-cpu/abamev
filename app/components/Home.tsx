@@ -302,21 +302,17 @@ export function Home({ data }: { data: PageData }) {
         aria-label="Conheça a Academia"
       >
         {highlights.map((item) => (
-          <article key={item.to} className={s.highlight}>
+          <Link key={item.to} to={item.to} className={s.highlight}>
             <div className={s.highlightMedia}>{item.media}</div>
             <div className={s.highlightBody}>
               <span className={s.eyebrow}>{item.kicker}</span>
-              <h2>
-                <Link to={item.to} className={s.stretchedLink}>
-                  {item.title}
-                </Link>
-              </h2>
+              <h2>{item.title}</h2>
               <p>{item.text}</p>
               <span className={s.highlightArrow} aria-hidden="true">
                 <ArrowUpRight size={20} />
               </span>
             </div>
-          </article>
+          </Link>
         ))}
       </section>
 
@@ -411,7 +407,7 @@ export function Home({ data }: { data: PageData }) {
         />
         <div className={s.cardGrid}>
           {pick(site.home.publicationIds).map((item) => (
-            <Card key={item.id} item={item} />
+            <Card key={item.id} item={item} showMedia={false} />
           ))}
         </div>
       </section>

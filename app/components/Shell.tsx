@@ -188,7 +188,7 @@ export function Header({ path }: { path: string }) {
   }, [drawerOpen]);
 
   return (
-    <header className={s.header}>
+    <>
       {/* Estatuto da ABAMEV, art. 2º: content/pages.json (registro 25). */}
       <div className={s.utility}>
         <div className={s.container}>
@@ -202,6 +202,7 @@ export function Header({ path }: { path: string }) {
           </a>
         </div>
       </div>
+      <header className={s.header}>
       <div className={`${s.container} ${s.masthead}`}>
         <Brand />
         <span className={s.mastheadNote}>
@@ -404,7 +405,8 @@ export function Header({ path }: { path: string }) {
           <span>Salvador · Bahia · Desde 1999</span>
         </div>
       </div>
-    </header>
+      </header>
+    </>
   );
 }
 

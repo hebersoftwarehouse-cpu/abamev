@@ -225,7 +225,11 @@ function FilteredCollection({ data }: { data: PageData }) {
               chairs ? (
                 <Chair key={item.id} item={item} />
               ) : (
-                <Card key={item.id} item={item} />
+                <Card
+                  key={item.id}
+                  item={item}
+                  showMedia={data.path.startsWith("/noticias")}
+                />
               ),
             )}
         </div>

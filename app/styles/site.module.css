@@ -902,6 +902,10 @@
   border-color: transparent;
   box-shadow: var(--shadow);
 }
+.highlight:focus-visible {
+  outline: 2px solid var(--gold-500);
+  outline-offset: 3px;
+}
 .highlightMedia {
   aspect-ratio: 16 / 10;
   overflow: hidden;
@@ -2384,7 +2388,10 @@
 
 @media (max-width: 1023px) {
   .header {
+    position: sticky;
+    top: 0;
     border-bottom: 1px solid var(--line);
+    box-shadow: 0 8px 24px rgb(13 39 32 / 8%);
   }
   .container {
     width: calc(100% - 48px);
