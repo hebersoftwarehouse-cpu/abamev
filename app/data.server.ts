@@ -4,6 +4,7 @@ import academics from "../content/academics.json";
 import boards from "../content/boards.json";
 import site from "../content/site.json";
 import type { RecordEntry, PageData, EntrySummary } from "./types";
+import { isUnlistedChair } from "../scripts/content.mjs";
 
 const all = [
   ...publications,
@@ -11,6 +12,7 @@ const all = [
   ...academics,
   ...boards,
 ] as RecordEntry[];
+const listed = all.filter((entry) => !isUnlistedChair(entry));
 const summarize = (record: RecordEntry): EntrySummary => {
   const { body, ...summary } = record;
   return summary;
@@ -20,7 +22,7 @@ const configs: Record<string, [string, string, string]> = {
   "/academia/simbolos": [
     "symbols",
     "Símbolos",
-    "A bandeira, o bóton e a medalha que representam a identidade e a tradição da ABAMEV.",
+    "Conheça o emblema, a bandeira, a medalha, o bóton e o capelo da ABAMEV.",
   ],
   "/academia/diretorias": [
     "boards",
@@ -92,7 +94,7 @@ export function getPage(path: string): PageData | null {
       description: entry.summary.slice(0, 260),
       kind: "detail",
       entry,
-      entries: all
+      entries: listed
         .filter((x) => x.id !== entry.id && x.category === entry.category)
         .slice(0, 3)
         .map(summarize),
@@ -114,7 +116,7 @@ export function getPage(path: string): PageData | null {
     );
   if (kind === "videos") entries = all.filter((x) => x.videos.length);
   if (kind === "academics")
-    entries = all.filter((x) => x.chair).sort((a, b) => a.chair! - b.chair!);
+    entries = listed.filter((x) => x.chair).sort((a, b) => a.chair! - b.chair!);
   if (kind === "members")
     entries = all.filter((x) =>
       path.endsWith("honorarios")
@@ -128,7 +130,7 @@ export function getPage(path: string): PageData | null {
       .filter((x) => x.boardNumber)
       .sort((a, b) => b.boardNumber! - a.boardNumber!);
   if (kind === "symbols")
-    entries = all.filter((x) => ["27", "28", "29"].includes(x.id));
+    entries = all.filter((x) => x.path.startsWith("/academia/simbolos/"));
   if (kind === "honors")
     entries = all.filter(
       (x) => x.path.startsWith("/homenagens/") && !x.id.startsWith("category-"),

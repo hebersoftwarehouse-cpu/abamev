@@ -1,11 +1,13 @@
 import { mkdir, writeFile, readFile, copyFile } from 'node:fs/promises';
-import { records, publicPaths } from './content.mjs';
+import { records, publicPaths, isUnlistedChair } from './content.mjs';
 import sharp from 'sharp';
 
 const site = JSON.parse(await readFile('content/site.json', 'utf8'));
 const base = (process.env.VITE_SITE_URL || site.url).replace(/\/$/, '');
 const noindex = process.env.VITE_NOINDEX === 'true' || Boolean(process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production' || process.env.CONTEXT && process.env.CONTEXT !== 'production');
-const entries = records();
+const allEntries = records();
+const entries = allEntries.filter(x => !isUnlistedChair(x));
+const unlistedPaths = new Set(allEntries.filter(isUnlistedChair).map(x => x.path));
 const redirects = JSON.parse(await readFile('content/redirects.json', 'utf8'));
 const output = 'dist';
 const xml = text => String(text).replace(/[<>&"']/g, x=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&apos;'}[x]));
@@ -13,7 +15,7 @@ const index = entries.map(x=>({ id:x.id, title:x.title, summary:x.summary, categ
 await mkdir(`${output}/social`, {recursive:true});
 await writeFile('public/search-index.json', JSON.stringify(index));
 await writeFile(`${output}/search-index.json`, JSON.stringify(index));
-const paths = publicPaths().filter(p=>!['/404','/busca'].includes(p) && !/emeritos|benemeritos/.test(p));
+const paths = publicPaths().filter(p=>!['/404','/busca'].includes(p) && !/emeritos|benemeritos/.test(p) && !unlistedPaths.has(p));
 await writeFile(`${output}/sitemap.xml`, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${paths.map(p=>`\n  <url><loc>${xml(base + (p==='/'?'':p))}</loc></url>`).join('')}\n</urlset>\n`);
 await writeFile(`${output}/robots.txt`, `User-agent: *\n${noindex ? 'Disallow: /' : 'Allow: /\nDisallow: /busca\nSitemap: '+base+'/sitemap.xml'}\n`);
 await mkdir(`${output}/404`, {recursive:true});

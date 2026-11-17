@@ -1754,17 +1754,18 @@
   box-shadow: var(--shadow);
 }
 .symbolMedia {
-  display: grid;
-  place-items: center;
+  position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  padding: 32px;
   background: var(--cream-100);
 }
 .symbolMedia img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  padding: 32px;
+  object-fit: scale-down;
   mix-blend-mode: multiply;
 }
 .symbol h2 {
@@ -2184,6 +2185,10 @@
   font-size: 15.5px;
   line-height: 1.6;
 }
+[data-board] .prose table:not(:has(tr > :nth-child(3))) {
+  min-width: 0;
+  overflow-wrap: normal;
+}
 .prose td,
 .prose th {
   padding: 14px 18px;
@@ -2281,6 +2286,11 @@
   margin-top: 48px;
   padding-top: 32px;
   border-top: 1px solid var(--line);
+}
+.articleBody > .attachments:first-child {
+  margin: 0 0 40px;
+  padding-top: 0;
+  border-top: 0;
 }
 .attachments h2 {
   margin-bottom: 16px;

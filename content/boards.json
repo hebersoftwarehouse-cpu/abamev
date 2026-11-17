@@ -49,7 +49,8 @@
         "name": "Eliel Judson Duarte de Pinheiro"
       }
     ],
-    "empty": false
+    "empty": false,
+    "boardPeriod": "1999–2001"
   },
   {
     "id": "34",
@@ -101,7 +102,8 @@
         "name": "Eliel Judson Duarte de Pinheiro"
       }
     ],
-    "empty": false
+    "empty": false,
+    "boardPeriod": "2001–2003"
   },
   {
     "id": "35",
@@ -153,7 +155,8 @@
         "name": "Geraldo Cezar de Vinháes Torres"
       }
     ],
-    "empty": false
+    "empty": false,
+    "boardPeriod": "2003–2005"
   },
   {
     "id": "36",
@@ -205,7 +208,8 @@
         "name": "Wilma de Albuquerque Franco"
       }
     ],
-    "empty": false
+    "empty": false,
+    "boardPeriod": "2005–2007"
   },
   {
     "id": "37",
@@ -257,7 +261,8 @@
         "name": "Wilma de Albuquerque Franco"
       }
     ],
-    "empty": false
+    "empty": false,
+    "boardPeriod": "2007–2009"
   },
   {
     "id": "38",
@@ -309,7 +314,8 @@
         "name": "Maria Emília Bavia"
       }
     ],
-    "empty": false
+    "empty": false,
+    "boardPeriod": "Em exercício em 2011"
   },
   {
     "id": "39",
@@ -361,7 +367,8 @@
         "name": "José Carlos de Andrade Moura"
       }
     ],
-    "empty": false
+    "empty": false,
+    "boardPeriod": "Em exercício em 2013"
   },
   {
     "id": "40",
@@ -413,7 +420,8 @@
         "name": "Maria Emília Bavia"
       }
     ],
-    "empty": false
+    "empty": false,
+    "boardPeriod": "2015–2017"
   },
   {
     "id": "111",
@@ -465,7 +473,8 @@
         "name": "Maria José Moreira Batatinha"
       }
     ],
-    "empty": false
+    "empty": false,
+    "boardPeriod": "Em exercício em 2019 e 2020"
   },
   {
     "id": "116",
@@ -517,6 +526,57 @@
         "name": "Maria José Moreira Batatinha"
       }
     ],
-    "empty": false
+    "empty": false,
+    "boardPeriod": "2021–2023"
+  },
+  {
+    "id": "diretoria-11",
+    "slug": "11-diretoria",
+    "path": "/academia/diretorias/11",
+    "title": "11ª Diretoria",
+    "originalTitle": "Diretoria e o Conselho Fiscal para o triênio 2024/2027",
+    "summary": "Composição da 11ª Diretoria, do Conselho Fiscal e das comissões permanentes da ABAMEV no triênio 2024–2027.",
+    "category": "Diretorias",
+    "categories": [
+      "Diretorias"
+    ],
+    "format": "Artigo",
+    "sourcePublishedAt": null,
+    "author": null,
+    "body": "Mandato de 10 de agosto de 2024 a 10 de agosto de 2027.\n\n## Diretoria\n\n| Cargo | Nome |\n| --- | --- |\n| Presidente | Paulo Emílio Landulfo Medrado de Vinhaes Torres |\n| Vice-presidente | José Carlos de Andrade Moura |\n| Secretária | Lia Muniz Barretto Fernandes |\n| Tesoureiro | Max Vitória Resende |\n| Diretor Científico | Frederico de Medeiros Rodrigues |\n\n## Conselho Fiscal\n\n| Titulares | Suplentes |\n| --- | --- |\n| Alberto Lopes Gusmão | Ana Elisa Fernandes de Souza Almeida |\n| Marilene Moraes Caldas | Armando Pedreira das Neves |\n| José Eduardo Ungar de Sá | João Vieira Neto |\n\n## Comissões Permanentes\n\n### Comissão de História\n\n- Paulo Emílio Landulfo Medrado de Vinhaes Torres\n- José Carlos de Andrade Moura\n- Frederico de Medeiros Rodrigues\n\n### Comissão de Admissão e Exclusão\n\n- Altair Santana de Oliveira\n- Marilene Moraes Caldas\n- Maria Consuêlo Caribé Ayres\n\n### Comissão de Cerimonial\n\n- Ana Elisa Fernandes de Souza Almeida\n- Maria José Moreira Batatinha\n- Lia Muniz Barretto Fernandes",
+    "cover": null,
+    "images": [],
+    "attachments": [],
+    "videos": [],
+    "source": {
+      "originalUrl": null,
+      "fileName": "Para Héber.docx"
+    },
+    "legacyUrls": [],
+    "empty": false,
+    "boardNumber": 11,
+    "boardPeriod": "2024–2027",
+    "positions": [
+      {
+        "role": "Presidente",
+        "name": "Paulo Emílio Landulfo Medrado de Vinhaes Torres"
+      },
+      {
+        "role": "Vice-presidente",
+        "name": "José Carlos de Andrade Moura"
+      },
+      {
+        "role": "Secretária",
+        "name": "Lia Muniz Barretto Fernandes"
+      },
+      {
+        "role": "Tesoureiro",
+        "name": "Max Vitória Resende"
+      },
+      {
+        "role": "Diretor Científico",
+        "name": "Frederico de Medeiros Rodrigues"
+      }
+    ]
   }
 ]

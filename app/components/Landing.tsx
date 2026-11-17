@@ -69,12 +69,14 @@ function PageHeader({ data }: { data: PageData }) {
 }
 
 function Chair({ item }: { item: EntrySummary }) {
-  const photo = item.occupant ? item.images[1] || item.images[0] : null;
+  const photo = item.occupantPhoto === undefined
+    ? item.images[1] || item.images[0]
+    : item.occupantPhoto;
   return (
     <PersonCard
       item={item}
       badge={`Cadeira ${String(item.chair).padStart(2, "0")}`}
-      photo={photo}
+      photo={item.occupant ? photo : null}
       role={item.occupant ? "Acadêmico titular" : `Cadeira nº ${item.chair}`}
       name={
         item.occupant ||
@@ -415,6 +417,7 @@ export function Landing({ data }: { data: PageData }) {
             </span>
             <div>
               <h2>{item.boardNumber}ª Diretoria</h2>
+              {item.boardPeriod && <p>{item.boardPeriod}</p>}
               {item.positions?.find((p) =>
                 p.role.toLowerCase().includes("presidente"),
               ) && (

@@ -46,7 +46,7 @@ O XML original é preservado na raiz e não faz parte da saída publicada. `docs
 
 **Não execute a migração para publicar conteúdo novo.** `npm run migrate` reconstrói as coleções a partir do XML e sobrescreve alterações editoriais feitas nelas. `npm run recover` tenta recuperar mídias externas e PDFs públicos e atualiza o relatório. Se uma nova migração for necessária, preserve antes as edições atuais em controle de versão e execute também a recuperação antes do build.
 
-Rascunhos, testes e a política antiga de cookies foram excluídos da publicação. Um vídeo duplicado foi consolidado e ambos os endereços foram mantidos. As cadeiras sem biografia continuam no diretório como registros históricos. As normas e biografias não foram atualizadas editorialmente para a situação presente.
+Rascunhos, testes e a política antiga de cookies foram excluídos da publicação. Um vídeo duplicado foi consolidado e ambos os endereços foram mantidos. Cadeiras vagas a partir da 31 ficam ocultas na listagem, na busca e no sitemap. Os endereços diretos permanecem disponíveis para consulta histórica. As páginas do Estatuto e do Regimento Interno reproduzem as versões definitivas fornecidas pela Academia.
 
 ## Imagens e créditos
 

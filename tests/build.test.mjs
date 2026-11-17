@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { load } from 'cheerio';
-import { records, publicPaths } from '../scripts/content.mjs';
+import { records, publicPaths, isUnlistedChair } from '../scripts/content.mjs';
 import { XMLParser } from 'fast-xml-parser';
 
 const built=existsSync('dist/sitemap.xml');
@@ -28,10 +28,24 @@ test('cada rota possui HTML completo, título, canonical e capa social locais', 
 test('conteúdos publicados entram automaticamente no sitemap e na busca', {skip:!built}, () => {
   const sitemap=readFileSync('dist/sitemap.xml','utf8');
   const search=JSON.parse(readFileSync('dist/search-index.json','utf8'));
-  assert.equal(search.length,records().length);
-  for(const entry of records()) {
-    assert.ok(sitemap.includes(entry.path),entry.path);
-    assert.ok(search.some(x=>x.id===entry.id),entry.id);
+  const all = records();
+  assert.equal(search.length,all.filter(x=>!isUnlistedChair(x)).length);
+  for(const entry of all) {
+    const listed = !isUnlistedChair(entry);
+    assert.equal(sitemap.includes(`${entry.path}</loc>`),listed,entry.path);
+    assert.equal(search.some(x=>x.id===entry.id),listed,entry.id);
+  }
+});
+
+test('cadeiras vagas a partir da 31 ficam fora da listagem e da indexação', {skip:!built}, () => {
+  const $directory = load(readFileSync('dist/academicos/cadeiras/index.html','utf8'));
+  for (const entry of records().filter(x=>x.chair)) {
+    const listed = !isUnlistedChair(entry);
+    assert.equal($directory(`main a[href="${entry.path}"]`).length, listed ? 1 : 0);
+    if (!listed) {
+      const $page = load(readFileSync(`dist${entry.path}/index.html`,'utf8'));
+      assert.equal($page('meta[name="robots"]').attr('content'), 'noindex, follow');
+    }
   }
 });
 
@@ -54,12 +68,13 @@ test('o HTML preserva todos os parágrafos textuais do acervo migrado', {skip:!b
   const all=records();
   for(const source of root.item) {
     const entry=all.find(x=>x.id===String(source['wp:post_id']));
-    if(!entry) continue;
+    if(!entry || ['25','26'].includes(entry.id)) continue;
     const $source=load(source['content:encoded'] || '');
     const $page=load(readFileSync(`dist${entry.path}/index.html`,'utf8'));
     const text=normalize($page('[class*="_prose_"]').text());
     $source('p, figcaption').each((_,el)=>{
-      const paragraph=normalize($source(el).text());
+      const original = $source(el).text();
+      const paragraph=normalize(entry.id==='31' ? original.replace(/\bPENILDO SILVA\b/gi, 'PENILDON SILVA') : original);
       if(paragraph) assert.ok(text.includes(paragraph),`${entry.id}: ${$source(el).text().slice(0,100)}`);
     });
   }

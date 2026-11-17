@@ -1,8 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
-import { XMLParser } from 'fast-xml-parser';
-import { load } from 'cheerio';
 import { records, publicPaths, readCollection } from '../scripts/content.mjs';
 import { validate } from '../scripts/validate-content.mjs';
 
@@ -19,10 +17,13 @@ test('cada registro do XML tem uma decisão rastreável', () => {
   }
   for(const id of ['3','17','22','23','120','10']) assert.ok(!all.some(x=>x.id===id));
 });
-test('as quarenta cadeiras e dez diretorias são preservadas', () => {
+test('o acervo conserva as quarenta cadeiras e inclui as onze diretorias', () => {
   assert.deepEqual(readCollection('academics').filter(x=>x.chair).map(x=>x.chair).sort((a,b)=>a-b),Array.from({length:40},(_,i)=>i+1));
-  assert.equal(readCollection('boards').length,10);
-  assert.ok(readCollection('boards').find(x=>x.boardNumber===10).positions.some(x=>x.role==='Presidente' && x.name.includes('Paulo Emílio')));
+  const boards = readCollection('boards');
+  assert.deepEqual(boards.map(x=>x.boardNumber), Array.from({length:11},(_,i)=>i+1));
+  assert.ok(boards.every(x=>x.boardPeriod));
+  assert.ok(boards.at(-1).positions.some(x=>x.role==='Presidente' && x.name.includes('Paulo Emílio')));
+  assert.match(boards.at(-1).body, /10 de agosto de 2024 a 10 de agosto de 2027/);
 });
 test('regulamentos das categorias estão completos', () => {
   const merit=all.find(x=>x.id==='category-merito'), jubilee=all.find(x=>x.id==='category-jubileu');
@@ -35,7 +36,7 @@ test('não há colisões, imagens ausentes ou arquivos locais quebrados', () => 
 });
 test('arquivos recuperados são PDFs e indisponibilidade é explícita', () => {
   const attachments=all.flatMap(x=>x.attachments);
-  assert.equal(attachments.filter(x=>x.status==='recovered').length,14);
+  assert.equal(attachments.filter(x=>x.status==='recovered').length,16);
   assert.equal(attachments.filter(x=>x.status==='unavailable').length,1);
   for(const file of attachments.filter(x=>x.status==='recovered')) assert.match(readFileSync(`public${file.src}`).subarray(0,20).toString(),/%PDF-/);
 });
@@ -54,18 +55,26 @@ test('a biografia de José Alberto da Silva Lira reúne as homenagens e os ender
 });
 test('data original, títulos originais e proveniência são preservados', () => {
   for(const item of all.filter(x=>!x.id.startsWith('category-'))) {
-    assert.ok(item.originalTitle); assert.ok(item.source.originalUrl);
-    assert.ok(item.sourcePublishedAt); assert.equal(item.author,null);
+    assert.ok(item.originalTitle);
+    assert.equal(item.author,null);
+    if (item.source.originalUrl) assert.ok(item.sourcePublishedAt);
+    else {
+      assert.ok(item.source.fileName);
+      assert.equal(item.sourcePublishedAt,null);
+    }
   }
 });
-test('todos os parágrafos dos documentos normativos sobrevivem à conversão', () => {
-  const root=new XMLParser({ignoreAttributes:false,trimValues:false}).parse(readFileSync('abamev-wordpress.xml','utf8')).rss.channel;
-  const normalize=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^\p{L}\p{N}]/gu,'').toLowerCase();
-  for(const id of ['25','26']) {
-    const source=root.item.find(x=>String(x['wp:post_id'])===id);
-    const $=load(source['content:encoded']);
-    const output=normalize(all.find(x=>x.id===id).body);
-    $('p').each((_,p)=>{const paragraph=normalize($(p).text());if(paragraph) assert.ok(output.includes(paragraph),`${id}: ${$(p).text().slice(0,80)}`);});
+test('os documentos normativos novos têm todos os artigos e os PDFs correspondentes', () => {
+  for (const [id, articleCount, file] of [
+    ['25', 38, 'estatuto-abamev.pdf'],
+    ['26', 44, 'regimento-interno-abamev.pdf'],
+  ]) {
+    const entry = all.find(x=>x.id===id);
+    assert.deepEqual(
+      [...entry.body.matchAll(/^Art\.\s*(\d+)/gm)].map(match=>Number(match[1])),
+      Array.from({length:articleCount},(_,i)=>i+1),
+    );
+    assert.equal(entry.attachments[0].src, `/documents/${file}`);
   }
 });
 test('validação rejeita uma nova publicação com rota duplicada', () => {

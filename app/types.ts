@@ -4,9 +4,10 @@ export type RecordEntry = {
   id: string; slug: string; path: string; title: string; originalTitle: string; summary: string;
   category: string; categories: string[]; format: string; sourcePublishedAt: string | null; author: string | null;
   body: string; cover: Media | null; images: Media[]; attachments: Attachment[];
-  videos: { id: string; title: string }[]; source: { originalUrl: string }; legacyUrls: string[];
+  videos: { id: string; title: string }[]; source: { originalUrl: string | null; fileName?: string }; legacyUrls: string[];
   chair?: number; occupant?: string | null; patron?: string | null; vacancyInSource?: boolean;
-  boardNumber?: number; positions?: { role: string; name: string }[]; empty?: boolean;
+  occupantPhoto?: Media | null;
+  boardNumber?: number; boardPeriod?: string; positions?: { role: string; name: string }[]; empty?: boolean;
 };
 export type EntrySummary = Omit<RecordEntry, 'body'>;
 export type PageData = {

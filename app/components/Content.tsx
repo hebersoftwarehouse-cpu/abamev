@@ -452,6 +452,7 @@ export function Detail({
   const leadKey = compact(entry.summary.replace(/…$/, "")).slice(0, 60);
   const showLead =
     !entry.chair &&
+    !entry.boardPeriod &&
     leadKey.length > 0 &&
     !compact(plainText(entry.body.slice(0, 3000))).includes(leadKey);
   const headings = [...entry.body.matchAll(/^##\s+(.+)$/gm)]
@@ -485,6 +486,36 @@ export function Detail({
       ? [{ label: "Leia também", href: "#secao-leia-tambem" }]
       : []),
   ];
+  const isDocumentPage = entry.path.startsWith("/documentos/");
+  const files = entry.attachments.length > 0 && (
+    <section id="secao-arquivos" className={s.attachments}>
+      <h2>Arquivos</h2>
+      {entry.attachments.map((a) => (
+        <div key={a.id}>
+          <span className={s.attachmentIcon}>
+            <FileText size={22} strokeWidth={1.5} />
+          </span>
+          <span>
+            <strong>{entry.title}</strong>
+            <small>
+              {a.status === "recovered"
+                ? `PDF${a.bytes ? ` · ${(a.bytes / 1024 / 1024).toFixed(1)} MB` : ""}`
+                : "Disponível em link externo"}
+            </small>
+          </span>
+          {a.status === "recovered" ? (
+            <a href={a.src} target="_blank" rel="noreferrer">
+              Abrir PDF <Download size={17} />
+            </a>
+          ) : (
+            <a href={a.originalUrl} target="_blank" rel="noreferrer">
+              Abrir link <ExternalLink size={16} />
+            </a>
+          )}
+        </div>
+      ))}
+    </section>
+  );
   return (
     <>
       <div className={s.articleHero}>
@@ -496,6 +527,9 @@ export function Detail({
               </p>
             )}
             <h1>{entry.title}</h1>
+            {entry.boardPeriod && (
+              <p className={s.articleLead}>{entry.boardPeriod}</p>
+            )}
             {showLead && <p className={s.articleLead}>{entry.summary}</p>}
             <div className={s.articleMeta}>
               {dated && (
@@ -528,7 +562,12 @@ export function Detail({
             ))}
           </nav>
         </aside>
-        <article id="secao-conteudo" className={s.articleBody}>
+        <article
+          id="secao-conteudo"
+          className={s.articleBody}
+          data-board={entry.boardNumber}
+        >
+          {isDocumentPage && files}
           {entry.chair && (
             <div className={s.chairInfo}>
               <div>
@@ -560,35 +599,7 @@ export function Detail({
               ))}
             </div>
           )}
-          {entry.attachments.length > 0 && (
-            <section id="secao-arquivos" className={s.attachments}>
-              <h2>Arquivos</h2>
-              {entry.attachments.map((a) => (
-                <div key={a.id}>
-                  <span className={s.attachmentIcon}>
-                    <FileText size={22} strokeWidth={1.5} />
-                  </span>
-                  <span>
-                    <strong>{entry.title}</strong>
-                    <small>
-                      {a.status === "recovered"
-                        ? `PDF${a.bytes ? ` · ${(a.bytes / 1024 / 1024).toFixed(1)} MB` : ""}`
-                        : "Disponível em link externo"}
-                    </small>
-                  </span>
-                  {a.status === "recovered" ? (
-                    <a href={a.src} target="_blank" rel="noreferrer">
-                      Abrir PDF <Download size={17} />
-                    </a>
-                  ) : (
-                    <a href={a.originalUrl} target="_blank" rel="noreferrer">
-                      Abrir link <ExternalLink size={16} />
-                    </a>
-                  )}
-                </div>
-              ))}
-            </section>
-          )}
+          {!isDocumentPage && files}
         </article>
       </div>
       {related.length > 0 && (
