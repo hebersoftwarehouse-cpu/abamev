@@ -25,6 +25,14 @@ test('o acervo conserva as quarenta cadeiras e inclui as onze diretorias', () =>
   assert.ok(boards.at(-1).positions.some(x=>x.role==='Presidente' && x.name.includes('Paulo Emílio')));
   assert.match(boards.at(-1).body, /10 de agosto de 2024 a 10 de agosto de 2027/);
 });
+test('todos os patronos das cadeiras listadas têm os anos de nascimento e falecimento', () => {
+  const chairs = readCollection('academics').filter(entry => entry.chair && entry.chair <= 30);
+  assert.equal(chairs.length, 30);
+  for (const entry of chairs) {
+    assert.match(entry.patron, /\(\d{4}\s*-\s*\d{4}\)$/, `Cadeira ${entry.chair}`);
+    assert.ok(entry.summary.includes(entry.patron), `Resumo da cadeira ${entry.chair}`);
+  }
+});
 test('regulamentos das categorias estão completos', () => {
   const merit=all.find(x=>x.id==='category-merito'), jubilee=all.find(x=>x.id==='category-jubileu');
   assert.match(merit.body,/Art\.11/);assert.match(merit.body,/2003/);
